@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Irregular Verbs Trainer</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- QRCode local -->
+  <script src="qrcode.min.js"></script>
+</head>
+
+<body>
+
+<!-- ACCUEIL -->
+<section id="home">
+  <h1>Irregular Verbs Trainer</h1>
+  <button onclick="goToMenu()">Commencer</button>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="hidden">
+  <h2>Choisis un mode</h2>
+
+  <div class="mode-card" onclick="selectMode('classic')">Classique</div>
+  <div class="mode-card" onclick="selectMode('qcm')">QCM</div>
+  <div class="mode-card" onclick="selectMode('learning')">Apprentissage</div>
+  <div class="mode-card" onclick="selectMode('puzzle')">Puzzle</div>
+  <div class="mode-card" onclick="selectMode('flashcards')">Flashcards</div>
+  <div class="mode-card" onclick="selectMode('exam')">Examen</div>
+
+  <h3>Nombre de questions</h3>
+  <div class="question-buttons">
+    <button onclick="setQuestions(5)">5</button>
+    <button onclick="setQuestions(10)">10</button>
+    <button onclick="setQuestions(20)">20</button>
+  </div>
+
+  <button onclick="startGame()">Démarrer</button>
+</section>
+
+<!-- JEU -->
+<section id="game" class="hidden">
+  <h2 id="game-title"></h2>
+  <div id="question-counter"></div>
+  <div id="timer"></div>
+
+  <h1 id="word"></h1>
+  <div id="translation"></div>
+  <button id="toggle-translation" onclick="toggleTranslation()">Traduction</button>
+
+  <div id="step-label"></div>
+  <div id="btn-group"></div>
+  <div id="puzzle-area"></div>
+  <div id="feedback"></div>
+
+  <button id="next">Suivant</button>
+</section>
+
+<!-- RÉSULTATS -->
+<section id="result" class="hidden">
+  <h2>Résultats</h2>
+  <p id="score-text"></p>
+  <div id="mistake-list"></div>
+</section>
+
+<!-- MODALE IDENTITÉ -->
+<div id="identity-modal" class="modal hidden">
+  <h3>Qui es-tu ?</h3>
+  <input id="student-firstname" placeholder="Prénom">
+  <input id="student-class" placeholder="Classe (ex: 4B)">
+  <button onclick="saveIdentity()">Valider</button>
+</div>
+
+<!-- MODALE FIN -->
+<div id="session-modal" class="modal hidden">
+  <h3>Fin de séance</h3>
+  <button id="session-continue-btn">Autre exercice</button>
+  <button id="session-qr-btn">Générer QR</button>
+</div>
+
+<!-- QR -->
+<section id="qr-section" class="hidden">
+  <h3>QR ScanProf</h3>
+  <div id="qrBox"></div>
+  <button id="download-qr-btn">Télécharger</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
